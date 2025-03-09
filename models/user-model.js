@@ -7,8 +7,14 @@ const userSchema = mongoose.Schema({
     isadmin: Boolean,
     contact: Number,
     profilePicture: String,
-    cart : [],
-    orders: []
+    cart : {
+        type: Array,
+        default: []
+    },
+    orders: {
+        type: Array, 
+        default: [],
+    },
 });
 
 module.exports =  mongoose.model('User', userSchema);
