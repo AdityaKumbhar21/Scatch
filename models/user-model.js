@@ -4,6 +4,10 @@ const userSchema = mongoose.Schema({
     fullName: String, 
     email: String, 
     password: String,
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     contact:{
         type:"String",
         default: ""

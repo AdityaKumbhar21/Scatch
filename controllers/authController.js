@@ -47,6 +47,11 @@ module.exports.loginUser =  async(req, res)=>{
             }
 
             if(result){
+                if(user.isAdmin){
+                    const token = genToken(user);
+                    res.cookie('token', token);
+                    res.redirect('/admin')
+                }
                 const token = genToken(user);
                 res.cookie('token', token);
                 res.redirect('/shop')

@@ -2,7 +2,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const db = require('./config/mongoose-connection');
-const ownersRouter = require('./routes/ownersRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const indexRouter = require('./routes/index');
@@ -25,8 +24,7 @@ app.use(session({
 app.use(flash())
 
 // configuiring routers for each route
-app.use('/', indexRouter)
-app.use('/owners',ownersRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter);
 
