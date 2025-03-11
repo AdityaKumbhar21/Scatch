@@ -11,11 +11,8 @@ module.exports.getCart = async (req, res)=>{
             const platformFee = 20;
             cart.forEach((cartP)=>{
                 totalMrp += Number(cartP.price);
-                console.log(cartP.price);
                 totalDiscount += Number(cartP.discount);
-                console.log(cartP.discount);
                 totalAmount += Number(cartP.finalPrice === 0 ? cartP.price : cartP.finalPrice);
-                console.log(cartP.finalPrice);
             });
     
             totalAmount += platformFee;
