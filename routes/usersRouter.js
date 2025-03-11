@@ -12,8 +12,6 @@ router.get('/',(req, res)=>{
 });
 
 router.post('/register',validateUser, registerUser);
-
-
 router.post('/login', validateUser, loginUser);
 router.get('/logout', isLoggedIn, logoutUser );
 

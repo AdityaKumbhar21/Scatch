@@ -9,8 +9,11 @@ module.exports.adminCheck = async (req, res, next)=>{
         }
         next();
     } catch (error) {
-        console.log(error);
-        res.send("505: Internal Server Error");
+        console.error("Admin check error:", error);
+        
+        if (!res.headersSent) {  // Check if response has already been sent
+            return res.status(500).json({ error: "505: Internal Server Error" });
+        }
     }
 
 }
