@@ -13,10 +13,10 @@ const userSchema = mongoose.Schema({
         default: ""
     },
     profilePicture: String,
-    cart : {
-        type: Array,
-        default: []
-    },
+    cart : [{
+        type: mongoose.Types.ObjectId,
+        ref:'Product'
+    }],
     orders: {
         type: Array, 
         default: [],

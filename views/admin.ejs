@@ -18,7 +18,7 @@
                     <div class="flex justify-between items-center px-4 py-4">
                         <div>
                             <h3><%= product.name %></h3>
-                            <h4>₹ <%= product.price %></h4>
+                            <h4>₹ <%= product.finalPrice === 0 ? product.price : product.finalPrice %></h4>
                         </div>
                         <a class="w-7 h-7 flex items-center justify-center rounded-full text-black bg-white" href="">
                             <i class="ri-add-line"></i>

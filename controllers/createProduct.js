@@ -23,8 +23,9 @@ module.exports.createProduct =  async(req, res)=>{
             const product = await productModel.create({
                 image: req.file.buffer,
                 name, 
-                price: price-discount, 
+                price, 
                 discount, 
+                finalPrice: price-discount,
                 bgcolor, 
                 panelColor, 
                 textColor

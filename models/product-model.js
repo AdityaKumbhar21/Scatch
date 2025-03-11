@@ -8,6 +8,10 @@ const productSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    finalPrice: {
+        type: Number, 
+        default : 0
+    },
     bgcolor: {
         type: String,
         default: "#FFFFFF"

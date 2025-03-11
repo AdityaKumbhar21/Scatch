@@ -1,4 +1,16 @@
 <%- include('./partials/header') %>
+    <% if(success.length>0){  %>
+        <div id="flash-message" class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %> 
+            </span> 
+        </div> 
+        <script>
+            setTimeout(() => {
+                document.getElementById('flash-message')?.remove();
+            }, 2000);
+        </script>
+    <% } %>
     <div class="w-full h-screen flex items-start px-20 py-20">
         <div class="w-[25%] flex h-screen flex-col items-start">
             <div class="flex items-center gap-2">
@@ -32,9 +44,9 @@
                     <div class="flex justify-between items-center px-4 py-4">
                         <div>
                             <h3><%= product.name %></h3>
-                            <h4>₹ <%= product.price %></h4>
+                            <h4>₹ <%= product.finalPrice === 0 ? product.price : product.finalPrice %></h4>
                         </div>
-                        <a class="w-7 h-7 flex items-center justify-center rounded-full text-black bg-white" href="">
+                        <a class="w-7 h-7 flex items-center justify-center rounded-full text-black bg-white hover:bg-gray-200" href="addtocart/<%=product._id%>">
                             <i class="ri-add-line"></i>
                         </a>
                     </div>
